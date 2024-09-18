@@ -31,6 +31,7 @@
   display: flex;
   flex-direction: column;
   display: relative; /*  for the footer */
+  max-height: 100vh;
 }
 
 .background-img {
@@ -212,10 +213,15 @@ footer button:hover {
     /* have sidebar fit in context of page, not absolute overlay */
     inset: unset;
     min-width: 30%;
-    margin: unset;
+    max-width: 100vh;
     box-shadow: 0 0 40px 1px #030615;
     /* creates shadow on left side [ 0 0 {strength of shadow} {blur-factor/direction} {color} */
 
+  }
+
+  .sidebar-contents {
+    margin: unset;
+    width: 100%;
   }
 
 }

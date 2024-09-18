@@ -112,4 +112,8 @@ export default App
 // click source control tab in vs code
 // upload repository to github
 
-// to update changes
+// to update changes:
+// save changes
+// git add .
+// git commit -m "setup gh-pages"
+// git push

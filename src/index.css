@@ -1,0 +1,221 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 1);
+  background-color: #030615;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* selects everything on the page */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* gets id */
+#root {
+  min-height: 100vh;
+  display: flex;
+
+}
+
+/* makes image more responsive */
+.img-container {
+  display: flex;
+  flex-direction: column;
+  display: relative; /*  for the footer */
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  object-fit: cover;
+}
+
+
+footer {
+  /* because parent root has display: relative, we can give this display:fixed*/
+  /* a fixed display means it will be positioned outside of relative context */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* to put icon on the right */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+footer h2 {
+  font-size: 1.8rem;
+}
+
+footer h1 {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+/* container for h1 and h2 */
+footer div {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+footer button {
+  /* these get rid of background */
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: white;
+  padding: 1rem ; /* from edge of container */
+
+  /* for hover animation */
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+/* makes button larger */
+footer button i {
+  font-size: 1.3rem;
+}
+
+/* make interactive! */
+footer button:hover {
+  opacity: 0.7;
+}
+
+.background-gradient {
+  position: absolute;
+  inset: 0;
+  /* this element will expand to the full area of the parent  */
+  z-index: -1;
+  /* this means it'll be behind everything*/
+  background: linear-gradient(to top, #030615, rgba(255,255, 255, 0));
+}
+
+/* sidebar needs to change size based on window size */
+.sidebar {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10; /* so this sits on top of the footer */
+}
+
+.backgr-overlay {
+  position: absolute;
+  inset: 0;
+  background: #030615;
+  opacity: 0.6;
+}
+
+.sidebar-contents {
+  z-index: 15; /* so it sits over */
+  /*  */
+  position: relative;
+  display: flex;
+  flex-direction: column; /* so contents sit side by side */
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+  width: 90%;
+  max-width: 800px;
+  margin-left: auto; /* leaves a gap on the left side */
+  background: #030615;
+} 
+
+/* title in the sidebar */
+.sidebar-contents h2 {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+/*  paragraph text in sidebar*/
+.sidebar-contents div {
+  flex: 1; /* sets heirarchy of how much space to take up */
+
+}
+
+.sidebar-contents button {
+  background: transparent; /* no background */
+  color: white;
+  border: none;
+  outline: none;
+  margin-right: auto; /* place in left corner */
+
+
+  /* for hover actions */
+  cursor: pointer;
+  transition-duration: 200ms;
+  padding: 1rem 0; /* 0 horizontally so it left aligns nicely */
+  /* make bigger */
+}
+
+
+/* Loading screen */
+
+
+.loadingState {
+  display: flex;
+  
+  align-items: center; /* puts in center of y axis */
+  justify-content: center; 
+  flex: 1; /* puts in center of x axis */
+
+}
+
+.loadingState i {
+  opacity: 0.2;
+  font-size: 3rem;
+  animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+/* media query for responsiveness. when we exceed this minimum width */
+/* the following styles will apply */
+@media (min-width: 640px) {
+  .sidebar {
+    position: relative;
+    /* have sidebar fit in context of page, not absolute overlay */
+    inset: unset;
+    min-width: 30%;
+    margin: unset;
+    box-shadow: 0 0 40px 1px #030615;
+    /* creates shadow on left side [ 0 0 {strength of shadow} {blur-factor/direction} {color} */
+
+  }
+
+}

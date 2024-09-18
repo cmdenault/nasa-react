@@ -106,3 +106,10 @@ export default App
 // css them 
 // integrate api call
 // cache the data in local storage
+
+
+// upload to github:
+// click source control tab in vs code
+// upload repository to github
+
+// to update changes
